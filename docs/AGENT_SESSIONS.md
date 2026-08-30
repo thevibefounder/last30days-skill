@@ -11,3 +11,9 @@
 - **Changed:** Updated the checkout from v3.18.4 to upstream v3.21.1 plus the latest unreleased `main` commits; refreshed `~/.agents/skills/last30days`; appended this session record.
 - **Learned:** Safe preflight, mock research, Python compilation, and `git diff --check` pass. Full pytest remains unavailable because `uv` and pytest are not installed. PromptScript rejected the global install as unsupported, but the Codex-compatible Agent Skills copy installed successfully.
 - **Next:** Push local `main` to the `thevibefounder/last30days-skill` fork when remote synchronization is desired; separately remove the obsolete `~/.codex/skills/last-30-days` scaffold if no workflow still references it.
+
+## 2026-08-30 — Senior Eng-Claude — verify Claude-side skill installs are clean after Codex stale-skill removal
+- **Did:** Mirrored the Codex cleanup check on the Claude side: searched `~/.claude/skills/`, `~/.claude/plugins/` (installed plugins + marketplaces), `~/.config`, and the project `.claude/` for any obsolete `last-30-days` scaffold, and re-ran the engine preflight against the shared install.
+- **Changed:** Nothing needed removal — Claude never had a stale hyphenated copy. Appended this session record only.
+- **Learned:** The only install anywhere is the current `~/.agents/skills/last30days` at v3.21.1, the shared Agent Skills location both Claude Code and Codex read (Codex's own `~/.codex/skills/` has no last30days entry). Preflight reports "Ready to research with safe defaults." The `~/.Trash` destination Codex used is TCC-protected, so the trashed `last-30-days-stale-2026-08-30` copy couldn't be verified from this sandbox.
+- **Next:** None — both hosts are clean on v3.21.1.
